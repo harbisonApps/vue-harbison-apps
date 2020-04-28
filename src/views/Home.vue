@@ -5,22 +5,22 @@
       <!-- <v-btn color="accent" class="mx-2" large @click="$vuetify.goTo('#vuejs', options)">{ When a hero comes along }</v-btn> -->
     </section>
     <!-- <div class="text-center pa-2 mt-1">
-      <h1 title="Welcome to Harbison Apps"></h1>
+      <h1 body-1="Welcome to Harbison Apps"></h1>
     </div>
     <v-img :aspect-ratio="2" contain src="@/assets/laptop.jpg"/> -->
     <div class="text-center pa-2 mt-1">
       <h2>Why I Love Using Vue?</h2>
     </div>
     <div class="mx-sm-6">
-      <p class="pa-2 title">Because Vue has learned form the other JavaScript frameworks on the market. Implementing
+      <p class="pa-2 mx-1 body-1">Because Vue has learned form the other JavaScript frameworks on the market. Implementing
         their best parts and yet remaining as opinionated as possible. Vue also comes in a variety
         of flavors.
       </p>
       <h3 class="row justify-center">"Flavors, what flavors?"</h3>
-      <p class="pa-2 title">One the benefits of using Vue.js is that there are a variety of ways to build web sites and apps.
+      <p class="pa-2 body-1">One the benefits of using Vue.js is that there are a variety of ways to build web sites and apps.
       </p>
       <div class="row justify-center">
-        <ul class="title">
+        <ul class="body-1">
           <li>Development Speed</li>
           <li>Smaller JavaScript Payload</li>
           <li>Versatile</li>

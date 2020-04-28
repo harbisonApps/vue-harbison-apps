@@ -65,8 +65,8 @@
       <!-- </v-container> -->
       <div class="text-center">
         <v-bottom-sheet v-model="sheet" inset width="350">
-          <v-sheet class="text-center" height="600px" >
-            <div class="ma-3 pt-6">
+          <v-sheet class="text-center mb-6" height="725px" >
+            <div class="mx-3 pt-2">
               <div class="title">Fill this out and I will get back to you as soon as possible
               </div>
               <v-form name="contact" data-netlify="true"
@@ -91,7 +91,7 @@
                   :rules="phoneRules" ref="phone"
                   label="Phone"
                 ></v-text-field>
-                <v-select v-model="form.request" :items="form.items" ref="request"
+                <v-select class="body-1" v-model="form.request" :items="form.items" ref="request"
                   :rules="[v => !!v || 'A subject is required']"
                   label='Please contact me' required aria-placeholder="A subject is required"
                   ></v-select>
