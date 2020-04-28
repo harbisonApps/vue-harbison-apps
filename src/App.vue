@@ -102,7 +102,7 @@
                 <v-btn outlined color="warning" class="mr-4" @click="reset"
                   >reset
                 </v-btn>
-                <v-btn color="success" @click.prevent="submitForm"
+                <v-btn color="success" type="submit"
                   > Send
                 </v-btn>
               </v-form>
@@ -171,9 +171,7 @@ export default {
     handleSubmit () {
       fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: this.encode({
           'form-name': 'contact',
           name: this.form.name,
