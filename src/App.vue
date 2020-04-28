@@ -176,7 +176,6 @@ export default {
         },
         body: this.encode({
           'form-name': 'contact',
-          contactForm: this.form.contactForm,
           name: this.form.name,
           email: this.form.email,
           phone: this.form.phone,
@@ -189,9 +188,8 @@ export default {
           this.sheet = false
           this.reset()
         })
-        .catch((err) => {
+        .catch(() => {
           swal('', 'Something went wrong, please try again', 'error')
-          console.error('console log', err)
         })
     },
     reset () {
