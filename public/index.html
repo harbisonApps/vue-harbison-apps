@@ -13,6 +13,34 @@
     <noscript>
       <strong>We're sorry but <Harbison Apps> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <form hidden name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
+      <p hidden>
+        <label>Do not fill this in <input type="text" name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Your Name: <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Your Email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Phone: <input type="phone" name="phone" /></label>
+      </p>
+      <p>
+        <label>Your Role: <select name="request[]">
+            <option value="A new VueJs webapp">A new VueJs webapp</option>
+            <option value="A new static website">A new static website</option>
+            <option value="I have a question">I have a question</option>
+            <option value="I have a problem">I have a problem</option>
+          </select></label>
+      </p>
+      <p>
+        <label>Message: <textarea name="message"></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

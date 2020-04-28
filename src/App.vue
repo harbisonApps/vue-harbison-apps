@@ -5,53 +5,20 @@
       app width="200"
     >
       <v-list dense shaped>
-        <v-list-item color="white" dark>
+        <NavDrawer />
+        <v-list-item color="white" dark class="headline" @click="sheet = !sheet">
+          <v-list-item-action>
+            <v-icon>mdi-email-outline</v-icon>
+          </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>version 0.5.0</v-list-item-title>
+            <v-list-item-title>Free Consult</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item-group>
-          <v-list-item color="white" dark class="headline" link to="/">
-            <v-list-item-action>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Home</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item color="white" dark class="headline" link to="/about">
-            <v-list-item-action>
-              <v-icon>mdi-mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>About</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item color="white" dark class="headline" link to="/services">
-            <v-list-item-action>
-              <v-icon>mdi-mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Services</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item color="white" dark class="headline" link to="/help">
-            <v-list-item-action>
-              <v-icon>mdi-mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Help</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item color="white" dark class="headline" @click="sheet = !sheet">
-            <v-list-item-action>
-              <v-icon>mdi-mail</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>Free Consult</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
+        <v-list-item color="white" dark>
+          <v-list-item-content>
+            <a href='https://ko-fi.com/E1E01LQUA' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -93,59 +60,52 @@
     </v-app-bar>
 
     <v-content>
-      <v-container fluid>
+      <!-- <v-container> -->
         <router-view/>
-      </v-container>
+      <!-- </v-container> -->
       <div class="text-center">
         <v-bottom-sheet v-model="sheet" inset width="350">
-          <!-- <template v-slot:activator="{ on }">
-            <v-btn color="brown" absolute block
-              bottom v-on="on" dark x-large
-              >
-              <v-icon class="mr-3">mdi-email-outline</v-icon>
-              Contact Us
-            </v-btn>
-          </template> -->
-          <v-sheet class="text-center" height="650px">
+          <v-sheet class="text-center" height="600px" >
             <div class="ma-3 pt-6">
               <div class="title">Fill this out and I will get back to you as soon as possible
               </div>
-              <v-form ref="form"
-              v-model="valid"
-              lazy-validation
+              <v-form name="contact" data-netlify="true"
+                data-netlify-honeypot="bot-field" method="post"
+                @submit.prevent="submitForm"
+                ref="form"
+                v-model="valid"
+                lazy-validation
               >
-                <v-text-field v-model="name"
-                  :rules="nameRules" autofocus
+                <input type="hidden" name="bot-field" />
+                <v-text-field hidden v-model="form.contactForm"
+                ></v-text-field>
+                <v-text-field v-model="form.name" ref="name"
+                  :rules="nameRules" autofocus aria-placeholder="Your name is required"
                   label="Name" required
                 ></v-text-field>
-                <v-text-field v-model="email"
-                  :rules="emailRules"
+                <v-text-field v-model="form.email"
+                  :rules="emailRules" ref="email" aria-placeholder=""
                   label="E-mail" required
                 ></v-text-field>
-                <v-text-field v-model="phone"
-                  :rules="phoneRules"
-                  label="Phone" required
+                <v-text-field v-model="form.phone"
+                  :rules="phoneRules" ref="phone"
+                  label="Phone"
                 ></v-text-field>
-                <v-select v-model="select"
-                  :items="items"
+                <v-select v-model="form.request" :items="form.items" ref="request"
                   :rules="[v => !!v || 'A subject is required']"
-                  label="Subject" required
+                  label='Please contact me' required aria-placeholder="A subject is required"
                   ></v-select>
-                <v-textarea v-model="comment"
-                  label="Comment"
-                  rows="3"
+                <v-textarea v-model="form.comment"
+                  label="Message" rows="3"
                 ></v-textarea>
-                <v-btn class="mr-4" outlined
-                  color="error" @click="sheet = !sheet"
-                >close
+                <v-btn class="mr-4" outlined color="error" @click="sheet = !sheet"
+                  >close
                 </v-btn>
-                <v-btn outlined color="warning"
-                  class="mr-4" @click="reset"
-                >reset
+                <v-btn outlined color="warning" class="mr-4" @click="reset"
+                  >reset
                 </v-btn>
-                <v-btn color="success"
-                  @click="submit"
-                > Send
+                <v-btn color="success" @click.prevent="submitForm"
+                  > Send
                 </v-btn>
               </v-form>
             </div>
@@ -157,39 +117,85 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Nav/Navbar'
+import NavDrawer from '@/components/Nav/NavDrawer'
+import swal from 'sweetalert'
 export default {
   name: 'App',
-
   components: {
-    Navbar
+    Navbar, NavDrawer
   },
-
   data: () => ({
+    valid: true,
     drawer: false,
     sheet: false,
-    valid: true,
-    name: '',
+    form: {
+      contactForm: 'App',
+      name: '',
+      email: '',
+      phone: '',
+      request: null,
+      items: [
+        'I`m looking for a new VueJs webapp',
+        'I`m looking for a new static website',
+        'I have a question',
+        'I have a problem'
+      ],
+      comment: ''
+    },
     nameRules: [
       v => !!v || 'Name is required',
       v => (v && v.length >= 3) || 'Name must be more than 3 characters'
     ],
-    email: '',
     emailRules: [
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
-    select: null,
-    items: [
-      'Please contact me',
-      'I have a question',
-      'I have a comment',
-      'I like this site',
-      'I dislike this site'
-    ],
-    comment: ''
+    phoneRules: [
+      v => /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/.test(v) || 'Please enter a valid phone number'
+    ]
   }),
   methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('/')
+    },
+    submitForm () {
+      this.$refs.form.validate()
+
+      if (this.$refs.form.hasError) {
+        swal('Required', 'name:  email: and subject: are required', 'error')
+      } else {
+        this.handleSubmit()
+      }
+    },
+    handleSubmit () {
+      fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: this.encode({
+          'form-name': 'contact',
+          contactForm: this.form.contactForm,
+          name: this.form.name,
+          email: this.form.email,
+          phone: this.form.phone,
+          request: this.form.request.toString(),
+          message: this.form.message
+        })
+      })
+        .then(() => {
+          swal('Thank you', 'I will contact you as soon as possible', 'success')
+          this.sheet = false
+          this.reset()
+        })
+        .catch((err) => {
+          swal('', 'Something went wrong, please try again', 'error')
+          console.error('console log', err)
+        })
+    },
     reset () {
       this.$refs.form.reset()
     }
@@ -205,4 +211,5 @@ export default {
   background-color: #fff;
   color: #304455
 }
+
 </style>
