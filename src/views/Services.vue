@@ -1,14 +1,11 @@
 <template>
   <div id="services" class="">
     <section class="masthead" role="img" aria-label="Laptop">
-      <h1 class="h1-masthead">Services</h1>
+      <h1 title="Services - Harbison Apps" class="h1-masthead">Services</h1>
       <v-btn color="accent" class="mx-2" large @click="$vuetify.goTo('#vuejs', options)">{ When a hero comes along }</v-btn>
     </section>
-    <div class="text-center pa-2 mt-1">
-      <h1 title="Services - Harbison Apps">Services - Harbison Apps</h1>
-    </div>
     <div class="text-center pa-2 mt-1 mx-sm-6">
-      <p class="font-weight-light title pa-2">
+      <p class="title pa-2">
         From dynamic web apps and static sites, to adding features to your website; I will give
         what you need to improve your web presence.
       </p>
@@ -74,19 +71,6 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-row>
-    </div>
-    <div class="text-center mt-6 mb-12">
-      <v-card to="/" color="secondary" raised elevation="8" dark class="mx-auto" max-width="350">
-        <v-card-text>
-          <div class="display-1">Services I Provide</div>
-        </v-card-text>
-        <v-card-actions>
-          <v-icon>mdi-code-braces</v-icon>
-          <!-- <v-btn to="/" text class="title font-italic" color="white">
-            Learn More
-          </v-btn> -->
-        </v-card-actions>
-      </v-card>
     </div>
   </div>
 </template>

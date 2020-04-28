@@ -64,38 +64,36 @@
         <router-view/>
       <!-- </v-container> -->
       <div class="text-center">
-        <v-bottom-sheet v-model="sheet" scrollable inset width="350">
-          <v-sheet class="text-center mb-6" height="600px" >
+        <v-bottom-sheet class="mb-6" v-model="sheet" scrollable inset width="350">
+          <v-sheet class="text-center" height="600px" >
             <div class="mx-3 pt-2">
               <div class="title">Fill this out and I will get back to you as soon as possible
               </div>
               <v-form name="contact" data-netlify="true"
-                data-netlify-honeypot="bot-field" method="post"
+                data-netlify-honeypot="bot-field" method="POST"
                 @submit.prevent="submitForm"
                 ref="form"
                 v-model="valid"
                 lazy-validation
               >
                 <input type="hidden" name="bot-field" />
-                <v-text-field v-show="!show" v-model="form.contactForm"
-                ></v-text-field>
-                <v-text-field v-model="form.name" ref="name"
+                <v-text-field name="name" v-model="form.name" ref="name"
                   :rules="nameRules" autofocus aria-placeholder="Your name is required"
                   label="Name" required
                 ></v-text-field>
-                <v-text-field v-model="form.email"
+                <v-text-field name="email" v-model="form.email"
                   :rules="emailRules" ref="email" aria-placeholder=""
                   label="E-mail" required
                 ></v-text-field>
-                <v-text-field v-model="form.phone"
+                <v-text-field name="phone" v-model="form.phone"
                   :rules="phoneRules" ref="phone"
                   label="Phone"
                 ></v-text-field>
-                <v-select class="body-1" v-model="form.request" :items="form.items" ref="request"
+                <v-select name="subject" class="body-1" v-model="form.request" :items="form.items" ref="request"
                   :rules="[v => !!v || 'A subject is required']"
                   label='Please contact me' required aria-placeholder="A subject is required"
                   ></v-select>
-                <v-textarea v-model="form.comment"
+                <v-textarea name="message" v-model="form.comment"
                   label="Message" rows="3"
                 ></v-textarea>
                 <v-btn class="mr-4" outlined color="error" @click="sheet = !sheet"
@@ -131,7 +129,6 @@ export default {
     drawer: false,
     sheet: false,
     form: {
-      contactForm: 'App',
       name: '',
       email: '',
       phone: '',

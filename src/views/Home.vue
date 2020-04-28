@@ -11,15 +11,15 @@
     <div class="text-center pa-2 mt-1">
       <h2>Why I Love Using Vue?</h2>
     </div>
-    <div class="mx-sm-6">
-      <p class="pa-2 mx-1 body-1">Because Vue has learned form the other JavaScript frameworks on the market. Implementing
+    <div class="ml-2 mx-sm-6">
+      <p class="pa-2 body-1">Because Vue has learned form the other JavaScript frameworks on the market. Implementing
         their best parts and yet remaining as opinionated as possible. Vue also comes in a variety
         of flavors.
       </p>
       <h3 class="row justify-center">"Flavors, what flavors?"</h3>
       <p class="pa-2 body-1">One the benefits of using Vue.js is that there are a variety of ways to build web sites and apps.
       </p>
-      <div class="row justify-center">
+      <div class="row mx-auto justify-center">
         <ul class="body-1">
           <li>Development Speed</li>
           <li>Smaller JavaScript Payload</li>
@@ -27,11 +27,10 @@
           <li>Reusability</li>
         </ul>
       </div>
-      <div class="row justify-center">
-        <v-btn class="ml-n3 my-12" color="secondary" x-large to="/services#vuejs"
+      <div class="text-center" >
+        <v-btn class=" my-12" color="secondary" x-large to="/services"
           >
-          <span class="px-2"> Services I Provide</span>
-          <v-icon>mdi-code-braces</v-icon>
+          <span class="px-2">[ Services I Provide ]</span>
         </v-btn>
       </div>
     </div>
