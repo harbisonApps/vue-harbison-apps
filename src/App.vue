@@ -64,8 +64,8 @@
         <router-view/>
       <!-- </v-container> -->
       <div class="text-center">
-        <v-bottom-sheet v-model="sheet" inset width="350">
-          <v-sheet class="text-center mb-6" height="725px" >
+        <v-bottom-sheet v-model="sheet" scrollable inset width="350">
+          <v-sheet class="text-center mb-6" height="600px" >
             <div class="mx-3 pt-2">
               <div class="title">Fill this out and I will get back to you as soon as possible
               </div>
@@ -77,7 +77,7 @@
                 lazy-validation
               >
                 <input type="hidden" name="bot-field" />
-                <v-text-field hidden v-model="form.contactForm"
+                <v-text-field v-show="!show" v-model="form.contactForm"
                 ></v-text-field>
                 <v-text-field v-model="form.name" ref="name"
                   :rules="nameRules" autofocus aria-placeholder="Your name is required"
@@ -126,6 +126,7 @@ export default {
     Navbar, NavDrawer
   },
   data: () => ({
+    show: true,
     valid: true,
     drawer: false,
     sheet: false,
