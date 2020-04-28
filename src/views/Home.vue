@@ -59,7 +59,7 @@ p {
   flex-direction: column;
   text-align: center;
   width: 100%;
-  height: 82vh; /* if you don't want it to take up the full screen, reduce this number */
+  height: 80vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: auto;
   background-size: cover;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop.jpg) no-repeat center center scroll;
@@ -85,7 +85,7 @@ p {
   margin: 0;
   text-decoration: none;
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
   -webkit-appearance: none;
@@ -99,7 +99,7 @@ p {
 
 @media screen and (max-width: 770px) {
   .masthead{
-    height: 77vh;
+    height: 50vh;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop-md.jpg) no-repeat center center scroll;
   }
   .h1-masthead {
@@ -109,7 +109,7 @@ p {
 
 @media screen and (max-width: 425px) {
   .masthead{
-    height: 42vh;
+    height: 30vh;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop-sm.jpg) no-repeat center center scroll;
   }
   .h1-masthead {

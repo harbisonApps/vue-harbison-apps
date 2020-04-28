@@ -116,50 +116,6 @@ export default {
 </script>
 <style scoped>
 
-.masthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  height: 82vh; /* if you don't want it to take up the full screen, reduce this number */
-  overflow: auto;
-  background-size: cover;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop.jpg) no-repeat center center scroll;
-}
-
-.h1-masthead {
-  font-style: normal;
-  font-weight: bold;
-  color: #eee;
-  font-size: 11vmin;
-  letter-spacing: 0.03em;
-  line-height: 1;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: 150px;
-}
-
-.button-masthead {
-  background: #327a5a;
-  border-radius: 10px;
-  display: inline-block;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  margin: 0;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.3rem;
-  cursor: pointer;
-  text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.button-masthead:focus {
-  outline: 1px solid #fff;
-  outline-offset: -4px;
-}
 .free-consult-card{
   min-width: 300px;
   max-width: 350px;
@@ -199,9 +155,54 @@ h4{
   width: 140px;
 }
 
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 80vh; /* if you don't want it to take up the full screen, reduce this number */
+  overflow: auto;
+  background-size: cover;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop.jpg) no-repeat center center scroll;
+}
+
+.h1-masthead {
+  font-style: normal;
+  font-weight: bold;
+  color: #eee;
+  font-size: 11vmin;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 150px;
+}
+
+.button-masthead {
+  background: #327a5a;
+  border-radius: 10px;
+  display: inline-block;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button-masthead:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
 @media screen and (max-width: 770px) {
   .masthead{
-    height: 77vh;
+    height: 50vh;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop-md.jpg) no-repeat center center scroll;
   }
   .h1-masthead {
@@ -211,7 +212,7 @@ h4{
 
 @media screen and (max-width: 425px) {
   .masthead{
-    height: 42vh;
+    height: 30vh;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop-sm.jpg) no-repeat center center scroll;
   }
   .h1-masthead {

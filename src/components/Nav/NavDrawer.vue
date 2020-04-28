@@ -6,7 +6,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item-group>
-          <v-list-item color="white" dark class="headline" link to="/home">
+          <v-list-item color="white" dark class="headline" link to="/">
             <v-list-item-action>
               <v-icon>mdi-home</v-icon>
             </v-list-item-action>
