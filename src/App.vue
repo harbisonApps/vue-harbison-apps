@@ -6,7 +6,7 @@
     >
       <v-list dense shaped>
         <NavDrawer />
-        <v-list-item color="white" dark class="headline" @click="sheet = !sheet">
+        <v-list-item color="white" dark class="headline" to="/contact">
           <v-list-item-action>
             <v-icon>mdi-email-outline</v-icon>
           </v-list-item-action>
@@ -52,7 +52,7 @@
       <v-spacer></v-spacer>
       <Navbar/>
       <v-btn title="Schedule your free consultation" large class="mr-1 pa-3 d-none d-sm-flex text--white"
-        @click="sheet = !sheet"
+       to="/contact"
         text
         >Free Consultation
         <!-- <v-icon class="ml-1">mdi-email-outline</v-icon> -->
@@ -63,14 +63,14 @@
       <!-- <v-container> -->
         <router-view/>
       <!-- </v-container> -->
-      <div class="text-center">
+      <!-- <div class="text-center">
         <v-bottom-sheet class="mb-6" v-model="sheet" scrollable inset width="350">
           <v-sheet class="text-center" height="600px" >
             <div class="mx-3 pt-2">
               <div class="title">Fill this out and I will get back to you as soon as possible
               </div>
               <v-form name="contact" data-netlify="true"
-                data-netlify-honeypot="bot-field" method="POST"
+                data-netlify-honeypot="bot-field" action="/" method="POST"
                 @submit.prevent="submitForm"
                 ref="form"
                 v-model="valid"
@@ -109,7 +109,7 @@
             </div>
           </v-sheet>
         </v-bottom-sheet>
-      </div>
+      </div> -->
     </v-content>
   </v-app>
 </template>
@@ -117,83 +117,83 @@
 <script>
 import Navbar from '@/components/Nav/Navbar'
 import NavDrawer from '@/components/Nav/NavDrawer'
-import swal from 'sweetalert'
+// import swal from 'sweetalert'
 export default {
   name: 'App',
   components: {
     Navbar, NavDrawer
   },
   data: () => ({
-    show: true,
-    valid: true,
-    drawer: false,
-    sheet: false,
-    form: {
-      name: '',
-      email: '',
-      phone: '',
-      request: null,
-      items: [
-        'I`m looking for a new VueJs webapp',
-        'I`m looking for a new static website',
-        'I have a question',
-        'I have a problem'
-      ],
-      comment: ''
-    },
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length >= 3) || 'Name must be more than 3 characters'
-    ],
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
-    ],
-    phoneRules: [
-      v => /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/.test(v) || 'Please enter a valid phone number'
-    ]
-  }),
-  methods: {
-    encode (data) {
-      return Object.keys(data)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-        .join('/')
-    },
-    submitForm () {
-      this.$refs.form.validate()
+  //   show: true,
+  //   valid: true,
+    drawer: false
+  //   sheet: false,
+  //   form: {
+  //     name: '',
+  //     email: '',
+  //     phone: '',
+  //     request: null,
+  //     items: [
+  //       'I`m looking for a new VueJs webapp',
+  //       'I`m looking for a new static website',
+  //       'I have a question',
+  //       'I have a problem'
+  //     ],
+  //     comment: ''
+  //   },
+  //   nameRules: [
+  //     v => !!v || 'Name is required',
+  //     v => (v && v.length >= 3) || 'Name must be more than 3 characters'
+  //   ],
+  //   emailRules: [
+  //     v => !!v || 'E-mail is required',
+  //     v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+  //   ],
+  //   phoneRules: [
+  //     v => /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/.test(v) || 'Please enter a valid phone number'
+  //   ]
+  })
+  // methods: {
+  //   encode (data) {
+  //     return Object.keys(data)
+  //       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+  //       .join('/')
+  //   },
+  //   submitForm () {
+  //     this.$refs.form.validate()
 
-      if (this.$refs.form.hasError) {
-        swal('Required', 'name:  email: and subject: are required', 'error')
-      } else {
-        this.handleSubmit()
-      }
-    },
-    handleSubmit () {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({
-          'form-name': 'contact',
-          name: this.form.name,
-          email: this.form.email,
-          phone: this.form.phone,
-          request: this.form.request.toString(),
-          message: this.form.message
-        })
-      })
-        .then(() => {
-          swal('Thank you', 'I will contact you as soon as possible', 'success')
-          this.sheet = false
-          this.reset()
-        })
-        .catch(() => {
-          swal('', 'Something went wrong, please try again', 'error')
-        })
-    },
-    reset () {
-      this.$refs.form.reset()
-    }
-  }
+  //     if (this.$refs.form.hasError) {
+  //       swal('Required', 'name:  email: and subject: are required', 'error')
+  //     } else {
+  //       this.handleSubmit()
+  //     }
+  //   },
+  //   handleSubmit () {
+  //     fetch('/', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //       body: this.encode({
+  //         'form-name': 'contact',
+  //         name: this.form.name,
+  //         email: this.form.email,
+  //         phone: this.form.phone,
+  //         request: this.form.request.toString(),
+  //         message: this.form.message
+  //       })
+  //     })
+  //       .then(() => {
+  //         swal('Thank you', 'I will contact you as soon as possible', 'success')
+  //         this.sheet = false
+  //         this.reset()
+  //       })
+  //       .catch(() => {
+  //         swal('', 'Something went wrong, please try again', 'error')
+  //       })
+  //   },
+  //   reset () {
+  //     this.$refs.form.reset()
+  //   }
+  // }
 }
 </script>
 <style scoped>

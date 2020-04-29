@@ -16,7 +16,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/services',
@@ -24,7 +25,8 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "services" */ '../views/Services.vue')
+    component: () =>
+      import(/* webpackChunkName: "services" */ '../views/Services.vue')
   },
   {
     path: '/help',
@@ -33,6 +35,26 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "help" */ '../views/Help.vue')
+  },
+  {
+    path: '/contact',
+    name: 'ContactView',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
+  },
+  {
+    path: '/thankyou',
+    name: 'SubmitSuccess',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "submit-success" */ '../views/SubmitSuccess.vue'
+      )
   }
 ]
 
