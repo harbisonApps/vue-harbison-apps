@@ -29,9 +29,6 @@
       <v-textarea name="message" v-model="form.message"
         label="Message" rows="3"
       ></v-textarea>
-      <!-- <v-btn class="mr-4" outlined color="error" @click="sheet = !sheet"
-        >close
-      </v-btn> -->
       <v-btn outlined color="warning" class="mr-4" @click="reset"
         >reset
       </v-btn>
@@ -44,6 +41,7 @@
 
 <script>
 import swal from 'sweetalert'
+import axios from 'axios'
 export default {
   name: 'ContactView',
   data () {
@@ -91,26 +89,52 @@ export default {
         this.handleSubmit()
       }
     },
+    // handleSubmit () {
+    //   const axiosConfig = {
+    //     header: { "Content-Type": "application/x-www-form-urlencoded" }
+    //   };
+    //   axios.post( "/",
+    //     this.encode({
+    //       'form-name': 'contact',
+    //       name: this.form.name,
+    //       email: this.form.email,
+    //       phone: this.form.phone,
+    //       request: this.form.request.toString(),
+    //       message: this.form.message
+    //     })
+    //     .then(() => {
+    //       this.reset()
+    //       this.$router.push('thankyou')
+    //     })
+    //     .catch(() => {
+    //       swal('', 'Something went wrong, please try again', 'error')
+    //     })
+    //   ),
     handleSubmit () {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
+      axios.post(
+        '/',
+        this.encode({
           'form-name': 'contact',
           name: this.form.name,
           email: this.form.email,
           phone: this.form.phone,
           request: this.form.request.toString(),
           message: this.form.message
-        })
-      })
+        }),
+        axiosConfig
+      )
         .then(() => {
-          this.reset()
           this.$router.push('thankyou')
         })
-        .catch(() => {
-          swal('', 'Something went wrong, please try again', 'error')
-        })
+        // .catch((e) => {
+        //   swal(e, 'Something went wrong, please try again', 'error')
+        // })
+        .catch(err => Promise.reject(
+          swal(err.message, '', 'error')
+        ))
     },
     reset () {
       this.$refs.form.reset()
