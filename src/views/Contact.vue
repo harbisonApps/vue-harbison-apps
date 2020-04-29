@@ -26,7 +26,7 @@
         :rules="[v => !!v || 'A subject is required']"
         label='Please contact me' required aria-placeholder="A subject is required"
         ></v-select>
-      <v-textarea name="message" v-model="form.comment"
+      <v-textarea name="message" v-model="form.message"
         label="Message" rows="3"
       ></v-textarea>
       <!-- <v-btn class="mr-4" outlined color="error" @click="sheet = !sheet"
@@ -61,7 +61,7 @@ export default {
           'I have a question',
           'I have a problem'
         ],
-        comment: ''
+        message: ''
       },
       nameRules: [
         v => !!v || 'Name is required',
