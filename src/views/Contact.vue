@@ -129,9 +129,6 @@ export default {
         .then(() => {
           this.$router.push('thankyou')
         })
-        // .catch((e) => {
-        //   swal(e, 'Something went wrong, please try again', 'error')
-        // })
         .catch(err => Promise.reject(
           swal(err.message, '', 'error')
         ))
