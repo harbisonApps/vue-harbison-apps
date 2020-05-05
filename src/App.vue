@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-navigation-drawer
       v-model="drawer" color="secondary"
       app width="200"
@@ -196,7 +196,7 @@ export default {
   // }
 }
 </script>
-<style scoped>
+<style>
 .v-app-bar__nav-icon:focus{
   background-color: #fff;
   color: #304455
@@ -204,6 +204,10 @@ export default {
 .v-btn--text:focus{
   background-color: #fff;
   color: #304455
+}
+#app{
+  background-color: #303030;
+  color: whitesmoke;
 }
 
 </style>

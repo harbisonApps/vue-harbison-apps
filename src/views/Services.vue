@@ -11,11 +11,11 @@
       </p>
     </div>
 
-    <div id="vuejs" class=" mx-4 mt-6 mb-12">
+    <div id="vuejs" class=" mx-4 mt-6 pb-12">
       <v-row>
         <v-expansion-panels focusable popout>
           <v-expansion-panel id="vue">
-            <v-expansion-panel-header>
+            <v-expansion-panel-header class="panel-bg">
               <v-img class="ma-1" contain height="50" width="50" src="@/assets/logo.png"/>
               <v-spacer></v-spacer>
               <h2 class="text-center vue">VueJs</h2>
@@ -53,7 +53,7 @@
             </v-expansion-panel-content>
           </v-expansion-panel>
           <v-expansion-panel id="nuxt">
-            <v-expansion-panel-header>
+            <v-expansion-panel-header class="panel-bg">
               <v-img class="float-left ma-1" contain height="50" width="50" src="@/assets/nuxt_logo.png"/>
               <v-spacer></v-spacer>
               <h2 class="text-center mr-2 nuxt">Nuxt</h2>
@@ -99,6 +99,9 @@ export default {
 }
 </script>
 <style scoped>
+.panel-bg{
+  background-color: #EEEEEE;
+}
 
 .free-consult-card{
   min-width: 300px;
@@ -107,7 +110,6 @@ export default {
 }
 p {
   text-indent: 10px;
-  color: black;
 }
 li{
   list-style: none;
@@ -207,4 +209,5 @@ h4{
     padding: 0.5rem .75rem;
   }
 }
+
 </style>

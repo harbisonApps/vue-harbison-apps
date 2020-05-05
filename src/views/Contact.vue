@@ -10,7 +10,7 @@
       lazy-validation
     >
       <input type="hidden" name="bot-field" />
-      <v-text-field name="name" v-model="form.name" ref="name"
+      <v-text-field class="ma-2" name="name" v-model="form.name" ref="name"
         :rules="nameRules" autofocus aria-placeholder="Your name is required"
         label="Name" required
       ></v-text-field>
@@ -29,10 +29,10 @@
       <v-textarea name="message" v-model="form.message"
         label="Message" rows="3"
       ></v-textarea>
-      <v-btn outlined color="warning" class="mr-4" @click="reset"
+      <v-btn outlined color="warning" class="mr-4 mb-3" @click="reset"
         >reset
       </v-btn>
-      <v-btn color="success" type="submit"
+      <v-btn color="success" type="submit" class=" mb-3"
         > Send
       </v-btn>
     </v-form>
@@ -143,5 +143,10 @@ export default {
 <style scoped>
 .contact-form{
   max-width: 500px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+.action-btns{
+  margin-bottom: 10px;
 }
 </style>
