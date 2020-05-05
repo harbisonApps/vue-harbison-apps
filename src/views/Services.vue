@@ -151,7 +151,7 @@ h4{
   height: 80vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: auto;
   background-size: cover;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop.jpg) no-repeat center center scroll;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%, rgba(48,68,85,0.65) 100%), url(../assets/laptop.webp) no-repeat center center scroll;
 }
 
 .h1-masthead {

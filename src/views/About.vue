@@ -23,7 +23,7 @@
     </div>
     <div class="ml-n12 text-center">
       <p class=" pa-2 mt-1">
-        <a href='https://ko-fi.com/E1E01LQUA' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+        <a href='https://ko-fi.com/E1E01LQUA' rel="preconnect" target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
       </p>
     </div>
   </div>

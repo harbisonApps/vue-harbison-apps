@@ -16,7 +16,7 @@
         </v-list-item>
         <v-list-item color="white" dark>
           <v-list-item-content>
-            <a href='https://ko-fi.com/E1E01LQUA' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+            <a href='https://ko-fi.com/E1E01LQUA' rel="preconnect noopener" target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -197,6 +197,7 @@ export default {
 }
 </script>
 <style>
+
 .v-app-bar__nav-icon:focus{
   background-color: #fff;
   color: #304455
@@ -207,7 +208,7 @@ export default {
 }
 #app{
   background-color: #303030;
-  color: whitesmoke;
+  color: #f5f5f5;
 }
 
 </style>
